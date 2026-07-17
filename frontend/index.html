@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Premium Speed Test</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -10,34 +10,50 @@
     <div class="app-wrapper">
         <div class="container" id="app-container">
             
+            <!-- Header Section -->
+            <div class="app-header">
+                <div class="brand">
+                    <span class="brand-dot"></span>
+                    <p id="status-text">Ready to connect</p>
+                </div>
+                <div class="spinner hidden" id="spinner"></div>
+            </div>
+
+            <!-- Hero Speedometer Area -->
             <div class="live-area">
                 <div class="pulse-ring"></div>
-                <p id="status-text">Ready to connect</p>
-                
                 <div class="speed-display">
                     <h1 id="live-value">0</h1>
-                    <div class="speed-units">
-                        <span id="live-unit">Mbps</span>
-                        <div class="spinner hidden" id="spinner"></div>
+                    <span id="live-unit">Mbps</span>
+                </div>
+            </div>
+
+            <!-- Metrics Matrix Grid -->
+            <div class="results-grid">
+                <div class="result-box fade-in delay-1">
+                    <span class="label">Ping</span>
+                    <div class="value-row">
+                        <span id="res-ping">--</span>
+                        <span class="unit">ms</span>
+                    </div>
+                </div>
+                <div class="result-box fade-in delay-2">
+                    <span class="label">Download</span>
+                    <div class="value-row">
+                        <span id="res-down">--</span>
+                        <span class="unit">Mbps</span>
+                    </div>
+                </div>
+                <div class="result-box fade-in delay-3">
+                    <span class="label">Upload</span>
+                    <div class="value-row">
+                        <span id="res-up">--</span>
+                        <span class="unit">Mbps</span>
                     </div>
                 </div>
             </div>
 
-            <div class="results-grid">
-                <div class="result-box fade-in delay-1">
-                    <span class="label">Ping</span>
-                    <div class="value-row"><span id="res-ping">--</span> <span class="unit">ms</span></div>
-                </div>
-                <div class="result-box fade-in delay-2">
-                    <span class="label">Download</span>
-                    <div class="value-row"><span id="res-down">--</span> <span class="unit">Mbps</span></div>
-                </div>
-                <div class="result-box fade-in delay-3">
-                    <span class="label">Upload</span>
-                    <div class="value-row"><span id="res-up">--</span> <span class="unit">Mbps</span></div>
-                </div>
-            </div>
-
+            <!-- Control Action Center -->
             <div class="controls">
                 <div class="unit-toggle">
                     <input type="radio" id="unit-mbps" name="unit" value="mbps" checked>

@@ -1,4 +1,3 @@
-// DOM Elements
 const appContainer = document.getElementById('app-container');
 const startBtn = document.getElementById('start-btn');
 const btnText = startBtn.querySelector('.btn-text');
@@ -7,12 +6,10 @@ const liveValue = document.getElementById('live-value');
 const liveUnit = document.getElementById('live-unit');
 const spinner = document.getElementById('spinner');
 
-// Result Grid Elements
 const resPing = document.getElementById('res-ping');
 const resDown = document.getElementById('res-down');
 const resUp = document.getElementById('res-up');
 
-// Unit Toggle Elements
 const unitRadios = document.querySelectorAll('input[name="unit"]');
 const gridUnits = document.querySelectorAll('.result-box .unit'); 
 
@@ -49,11 +46,10 @@ unitRadios.forEach(radio => {
 });
 
 async function runSpeedTest() {
-    // Lock UI and trigger CSS Animations
     startBtn.disabled = true;
     btnText.innerText = 'Testing...';
     spinner.classList.remove('hidden');
-    appContainer.classList.add('is-testing'); // Triggers the pulse!
+    appContainer.classList.add('is-testing'); 
     
     resPing.innerText = '--';
     resDown.innerText = '--';
@@ -61,7 +57,7 @@ async function runSpeedTest() {
     updateLabels(); 
 
     try {
-        // Ping
+        // Latency
         statusText.innerText = 'Testing Latency...';
         liveUnit.innerText = 'ms';
         liveValue.innerText = '...';
@@ -96,11 +92,10 @@ async function runSpeedTest() {
         console.error(error);
         statusText.innerText = 'Connection Error';
     } finally {
-        // Unlock UI and stop animations
         startBtn.disabled = false;
         btnText.innerText = 'Test Again';
         spinner.classList.add('hidden');
-        appContainer.classList.remove('is-testing'); // Stops the pulse!
+        appContainer.classList.remove('is-testing'); 
     }
 }
 

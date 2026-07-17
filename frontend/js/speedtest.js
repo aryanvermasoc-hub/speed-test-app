@@ -39,7 +39,6 @@ async function measureDownloadStream(onProgress) {
 
 function measureUploadStream(onProgress) {
     return new Promise((resolve, reject) => {
-        // Generate 20MB payload
         const payloadSize = 20 * 1024 * 1024; 
         const payload = new Uint8Array(payloadSize);
         for (let i = 0; i < payloadSize; i++) payload[i] = Math.random() * 255;
@@ -47,7 +46,6 @@ function measureUploadStream(onProgress) {
         const xhr = new XMLHttpRequest();
         let startTime = performance.now();
 
-        // Track live upload progress
         xhr.upload.onprogress = (event) => {
             if (event.lengthComputable) {
                 const durationInSeconds = (performance.now() - startTime) / 1000;
