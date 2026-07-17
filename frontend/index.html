@@ -3,23 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Premium Speed Test</title>
+    <title>Premium Speed Test (Clean White)</title>
     <link rel="stylesheet" href="css/styles.css">
+    <!-- Optional: Add Inter font for the cleanest aesthetic -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="app-wrapper">
         <div class="container" id="app-container">
             
-            <!-- Header Section -->
+            <!-- Header/Status Bar -->
             <div class="app-header">
-                <div class="brand">
-                    <span class="brand-dot"></span>
-                    <p id="status-text">Ready to connect</p>
-                </div>
+                <p id="status-text">Ready to connect</p>
                 <div class="spinner hidden" id="spinner"></div>
             </div>
 
-            <!-- Hero Speedometer Area -->
+            <!-- Live Area & Main Meter (Animations here) -->
             <div class="live-area">
                 <div class="pulse-ring"></div>
                 <div class="speed-display">
@@ -28,43 +27,39 @@
                 </div>
             </div>
 
-            <!-- Metrics Matrix Grid -->
+            <!-- Staggered Results Grid -->
             <div class="results-grid">
                 <div class="result-box fade-in delay-1">
                     <span class="label">Ping</span>
-                    <div class="value-row">
-                        <span id="res-ping">--</span>
-                        <span class="unit">ms</span>
-                    </div>
+                    <div class="value-row"><span id="res-ping">--</span> <span class="unit">ms</span></div>
                 </div>
                 <div class="result-box fade-in delay-2">
                     <span class="label">Download</span>
-                    <div class="value-row">
-                        <span id="res-down">--</span>
-                        <span class="unit">Mbps</span>
-                    </div>
+                    <div class="value-row"><span id="res-down">--</span> <span class="unit">Mbps</span></div>
                 </div>
                 <div class="result-box fade-in delay-3">
                     <span class="label">Upload</span>
-                    <div class="value-row">
-                        <span id="res-up">--</span>
-                        <span class="unit">Mbps</span>
-                    </div>
+                    <div class="value-row"><span id="res-up">--</span> <span class="unit">Mbps</span></div>
                 </div>
             </div>
 
-            <!-- Control Action Center -->
+            <!-- Control Action Center (Sliding Pill Animation here) -->
             <div class="controls">
                 <div class="unit-toggle">
+                    <!-- The actual inputs are hidden -->
                     <input type="radio" id="unit-mbps" name="unit" value="mbps" checked>
-                    <label for="unit-mbps">Mbps</label>
-                    
                     <input type="radio" id="unit-MBps" name="unit" value="MBps">
-                    <label for="unit-MBps">MB/s</label>
+                    
+                    <!-- Labels are visible -->
+                    <label for="unit-mbps" class="toggle-label left">Mbps</label>
+                    <label for="unit-MBps" class="toggle-label right">MB/s</label>
+                    
+                    <!-- The sliding 'pill' indicator -->
+                    <div class="toggle-indicator"></div>
                 </div>
+                
                 <button id="start-btn">
                     <span class="btn-text">Start Test</span>
-                    <div class="btn-glow"></div>
                 </button>
             </div>
             
